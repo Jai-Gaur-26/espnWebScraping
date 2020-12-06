@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <!--<h1>Starting with WhiteBoard</h1>-->
+    <!--canvas-->
+    <!--drawing board-->
+    <!--default width=> 300px, height=> 150px-->
+    <canvas class = "board"></canvas>
+    <!--Object-->
+    <script>
+        //alert("Js Ran");
+        //window=> represents current tab
+        //document=> represents current tab's html
+        let canvas = document.querySelector(".board");
+        
+        //increase the size of canvas
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        //get browser tool => draw
+        //2d,3d,webgl
+        let tool = canvas.getContext("2d");
+
+        //****************Draw Rectangle***************
+        //default color -> black
+        // tool.fillStyle = "blue";
+        // //sr=> 0, sy => 0, width -> 100, height -> 100
+        // tool.fillRect(0,0,100,100);
+        // tool.fillStyle="green";
+        // tool.fillRect(100,100,100,100);
+
+        //****************Draw Line********************
+        //start drawing
+        //tool.beginPath();
+        //move to 20,20
+        // tool.moveTo(20,20);
+
+        // tool.lineTo(100,100);
+        // tool.lineTo(100,200);
+        // tool.lineTo(20,20);
+        // tool.strokeStyle = "blue";
+        // tool.lineWidth = 10;
+        // tool.stroke();
+        // tool.fill();
+
+        let initialMouseX = null;
+        let initialMouseY = null;
+        window.addEventListener("mousedown", onmouseDown);
+        function onmouseDown(obj){
+            initialMouseX = obj.clientX;
+            initialMouseY = obj.clientY;
+            //console.log("mouse down fired");
+        }
+        window.addEventListener("mouseup", function(obj){
+            let finalMouseX = obj.clientX;
+            let finalMouseY = obj.clientY;
+            if(finalMouseX == initialMouseX && finalMouseY == initialMouseY){//if a point then do nothing
+                //do nothing
+            }else{//if not a point then draw line
+                tool.strokeStyle = "blue";
+                tool.beginPath();
+                tool.moveTo(initialMouseX, initialMouseY);
+                tool.lineTo(finalMouseX, finalMouseY);
+                tool.stroke();
+            }
+        })
+        window.addEventListener("mousemove", function(){
+            console.log("Mouse move fired");
+        })
+    </script>
+</body>
+</html>

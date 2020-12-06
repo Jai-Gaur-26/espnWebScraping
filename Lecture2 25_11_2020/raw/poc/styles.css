@@ -1,0 +1,16 @@
+/*element selector*/
+h1{
+    color:red;
+}
+/*class selector*/
+.green{
+    color:green;
+}
+/*sibling works for both element,class */
+.green.small{
+    font-size: 10px;
+}
+/*children selector*/
+div h1{
+    background-color: blue;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--<h1>Hello you can test on me </h1>-->
+    <script>
+        window.addEventListener("mousedown", onmouseDown);
+        function onmouseDown(obj){
+            //line initial point
+            //drawing process will start from
+            console.log("Mouse down occured", Math.random());
+            console.log("Mouse down desc", obj);
+        }
+        window.addEventListener("mouseup", function(obj){
+            console.log("Mouse up occured", Math.random());
+            console.log("Mouse up desc", obj);
+        })
+            
+        
+    </script>
+</body>
+</html>
